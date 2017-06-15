@@ -1,17 +1,13 @@
 // Palindrome Checker
+const checkPalindrome = (string) => {
+    let a = string.toLowerCase();
+    let b = /[(\W)(\s)(_)]/g;
+    string = a.replace(b, '');
+  
+    const reverse = string.split('').reverse().join('');
+    const checkPalindrome = (string === reverse);
 
-function palindrome(str) {
-  var a = str.toLowerCase();            // ignore case
-  var b = /[(\W)(\s)(_)]/g;             // regex to match special characters
-  var c = a.replace(b, '');             // replace special characters
+    const result = checkPalindrome ? `${string} is a palindrome` : `${string} is not a palindrome`;
 
-  for (var i = 0; i < c.length; i++) {
-    if (c[i] != c[c.length - 1 - i]) {  // if current var does not match inverse index
-      return false;
-    }
-  }
-
-  return true;
-}
-
-palindrome("Racecar");
+    return result;
+};
